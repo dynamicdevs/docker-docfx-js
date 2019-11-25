@@ -14,4 +14,6 @@ RUN npm install -g node2docfx \
 RUN nuget install memberpage -OutputDirectory /docfx/plugins && \
     nuget install rest.tagpage -OutputDirectory /docfx/plugins && \
     nuget install rest.operationpage -OutputDirectory /docfx/plugins
+
+WORKDIR /docfx
 CMD [ "/bin/bash", "-c", "/usr/lib/node_modules/node2docfx/node2docfx.js node2docfx.json && docfx build" ]
